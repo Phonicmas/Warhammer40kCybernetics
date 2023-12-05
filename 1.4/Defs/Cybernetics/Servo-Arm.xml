@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Servo Arm ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BEWH_ServoArm</defName>
+        <label>servo-arm</label>
+        <description>These massive manipulators contain powerful crushing pincers designed for field repair but also useful in combat as well.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_ServoArm</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <statBases>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_ServoArm</defName>
+        <label>install servo-arm</label>
+        <description>Install servo-arm.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_ServoArm</ThingDef>
+            <HediffDef>BEWH_ServoArm</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing servo-arm.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_ServoArm</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_ServoArm</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_ServoArm</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_ServoArm</defName>
+        <label>servo-arm</label>
+        <labelNoun>servo-arm</labelNoun>
+        <description>Installed servo-arm.</description>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <statOffsets>
+                    <CarryingCapacity>400</CarryingCapacity>
+                    <ConstructionSpeed>1.4</ConstructionSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>servo-arm</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>65</power>
+                        <armorPenetration>1.5</armorPenetration>
+                        <cooldownTime>4</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

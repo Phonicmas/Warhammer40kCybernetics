@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Medicae/Torture Mechadendrite ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BEWH_MedicaeTortureMechadendrite</defName>
+        <label>medicae/torture mechadendrite</label>
+        <description>Made of thin, dextrous tubes tipped with a variety of fascinating needles and blades, this mechadendrite can either heal or harm depending on intent.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_MedicaeTortureMechadendrite</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <statBases>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_MedicaeTortureMechadendrite</defName>
+        <workerClass>Cybernetics40k.Recipe_InstallMechadendrite</workerClass>
+        <label>install medicae/torture mechadendrite</label>
+        <description>Install medicae/torture mechadendrite.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_MedicaeTortureMechadendrite</ThingDef>
+            <HediffDef>BEWH_MedicaeTortureMechadendrite</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing medicae/torture mechadendrite.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_MedicaeTortureMechadendrite</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_MedicaeTortureMechadendrite</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_MedicaeTortureMechadendrite</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_MedicaeTortureMechadendrite</defName>
+        <label>medicae/torture mechadendrite</label>
+        <labelNoun>medicae/torture mechadendrite</labelNoun>
+        <description>Installed medicae/torture mechadendrite.</description>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <statOffsets>
+                    <MedicalTendSpeed>0.6</MedicalTendSpeed>
+                    <MedicalTendQuality>0.6</MedicalTendQuality>
+                    <MedicalOperationSpeed>0.6</MedicalOperationSpeed>
+                    <MedicalSurgerySuccessChance>0.6</MedicalSurgerySuccessChance>
+                    <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.6</ConversionPower>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>medicae/torture mechadendrite</label>
+                        <capacities>
+                            <li>Stab</li>
+                        </capacities>
+                        <power>7</power>
+                        <cooldownTime>0.8</cooldownTime>
+                    </li>
+                    <li>
+                        <label>medicae/torture mechadendrite</label>
+                        <capacities>
+                            <li>Stab</li>
+                        </capacities>
+                        <power>7</power>
+                        <cooldownTime>0.8</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

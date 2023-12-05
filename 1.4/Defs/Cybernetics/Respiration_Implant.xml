@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Respiration Implant ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BEWH_RespirationImplant</defName>
+        <label>respiration implant</label>
+        <description>This implant introduces microsieves and filtration screen into the airway so that the pawn can breathe even the most foully polluted air.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_RespirationImplant</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <statBases>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_RespirationImplant</defName>
+        <label>install respiration implant</label>
+        <description>Install an respiration implant.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_RespirationImplant</ThingDef>
+            <HediffDef>BEWH_RespirationImplant</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing respiration implant.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_RespirationImplant</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_RespirationImplant</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_RespirationImplant</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_RespirationImplant</defName>
+        <label>respiration implant</label>
+        <labelNoun>an respiration implant</labelNoun>
+        <description>An installed respiration implant.</description>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <postFactor>1.05</postFactor>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <ToxicResistance>4</ToxicResistance>
+                    <ToxicEnvironmentResistance>4</ToxicEnvironmentResistance>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

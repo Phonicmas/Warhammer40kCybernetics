@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Dendrite Blade ===-->
+    <!-- Gives a quick lesser attack -->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BEWH_DendriteBlade</defName>
+        <label>dendrite blade</label>
+        <description>A lethal weapon that almost seem to act on its own volition, Dendrite Blades consists of many linked metallic coils each ending in a serrated blade or wickedly sharp hook.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_DendriteBlade</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <statBases>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_DendriteBlade</defName>
+        <workerClass>Cybernetics40k.Recipe_InstallMechadendrite</workerClass>
+        <label>install dendrite blade</label>
+        <description>Install dendrite blade.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_DendriteBlade</ThingDef>
+            <HediffDef>BEWH_DendriteBlade</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing dendrite blade.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_DendriteBlade</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_DendriteBlade</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_DendriteBlade</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_DendriteBlade</defName>
+        <label>dendrite blade</label>
+        <labelNoun>dendrite blade</labelNoun>
+        <description>Installed dendrite blade.</description>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <statOffsets>
+                    <CarryingCapacity>100</CarryingCapacity>
+                    <ConstructionSpeed>0.6</ConstructionSpeed>
+                    <GeneralLaborSpeed>0.6</GeneralLaborSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>dendrite blade</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>7</power>
+                        <cooldownTime>0.3</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

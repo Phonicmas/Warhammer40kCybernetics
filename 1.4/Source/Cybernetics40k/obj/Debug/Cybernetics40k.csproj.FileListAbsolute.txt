@@ -1,0 +1,4 @@
+C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCybernetics\1.4\Assemblies\Cybernetics40k.dll
+C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCybernetics\1.4\Source\Cybernetics40k\obj\Debug\Cybernetics40k.csproj.AssemblyReference.cache
+C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCybernetics\1.4\Source\Cybernetics40k\obj\Debug\Cybernetics40k.csproj.CoreCompileInputs.cache
+C:\Steam\steamapps\common\RimWorld\Mods\Warhammer40kCybernetics\1.4\Source\Cybernetics40k\obj\Debug\Cybernetics40k.dll

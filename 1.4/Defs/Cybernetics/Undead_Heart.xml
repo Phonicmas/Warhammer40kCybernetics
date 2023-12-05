@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Undead Heart ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BEWH_UndeadHeart</defName>
+        <label>undead heart</label>
+        <description>Rotten to the core, those implanted become living masses of corruption.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_UndeadHeart</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <statBases>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_UndeadHeart</defName>
+        <label>install undead heart</label>
+        <description>Install a undead heart.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_UndeadHeart</ThingDef>
+            <HediffDef>BEWH_UndeadHeart</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing undead heart.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_UndeadHeart</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_UndeadHeart</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Heart</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_UndeadHeart</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="AddedBodyPartBase">
+        <defName>BEWH_UndeadHeart</defName>
+        <label>Undead heart</label>
+        <labelNoun>an undead heart</labelNoun>
+        <description>An installed undead heart.</description>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+                    <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+                    <ArmorRating_Heat>0.2</ArmorRating_Heat>
+                </statOffsets>
+                <statFactors>
+                    <IncomingDamageFactor>0.95</IncomingDamageFactor>
+                    <InjuryHealingFactor>1.5</InjuryHealingFactor>
+                </statFactors>
+            </li>
+        </stages>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.5</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+    </HediffDef>
+
+</Defs>

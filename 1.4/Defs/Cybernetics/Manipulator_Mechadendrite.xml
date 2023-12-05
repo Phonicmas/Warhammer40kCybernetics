@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Manipulator Mechadendrite ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BEWH_ManipulatorMechadendrite</defName>
+        <label>manipulator mechadendrite</label>
+        <description>This artificial limb is a great aid to those working in industrial or technical areas.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_ManipulatorMechadendrite</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <statBases>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_ManipulatorMechadendrite</defName>
+        <workerClass>Cybernetics40k.Recipe_InstallMechadendrite</workerClass>
+        <label>install manipulator mechadendrite</label>
+        <description>Install manipulator mechadendrite.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_ManipulatorMechadendrite</ThingDef>
+            <HediffDef>BEWH_ManipulatorMechadendrite</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing manipulator mechadendrite.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_ManipulatorMechadendrite</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_ManipulatorMechadendrite</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_ManipulatorMechadendrite</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_ManipulatorMechadendrite</defName>
+        <label>manipulator mechadendrite</label>
+        <labelNoun>manipulator mechadendrite</labelNoun>
+        <description>Installed manipulator mechadendrite.</description>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <statOffsets>
+                    <CarryingCapacity>100</CarryingCapacity>
+                    <ConstructionSpeed>0.6</ConstructionSpeed>
+                    <GeneralLaborSpeed>0.6</GeneralLaborSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>manipulator mechadendrite</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>25</power>
+                        <cooldownTime>2.5</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

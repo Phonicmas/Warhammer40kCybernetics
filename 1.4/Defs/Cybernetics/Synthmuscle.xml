@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Synth Muscle ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BEWH_Synthmuscle</defName>
+        <label>synthmuscle</label>
+        <description>Ropey strands of vat-grown muscle tissue, thick with slurried nutrients and laved with flakweave.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_Synthmuscle</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <statBases>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_Synthmuscle</defName>
+        <label>install synthmuscle</label>
+        <description>Install synthmuscle.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_Synthmuscle</ThingDef>
+            <HediffDef>BEWH_Synthmuscle</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing synthmuscle.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_Synthmuscle</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_Synthmuscle</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Leg</li>
+            <li>Arm</li>
+            <li>Spine</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_Synthmuscle</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_Synthmuscle</defName>
+        <label>synthmuscle</label>
+        <labelNoun>synthmuscle</labelNoun>
+        <description>Installed synthmuscle.</description>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+        <stages>
+            <li>
+                <statOffsets>
+                    <CarryingCapacity>30</CarryingCapacity>
+                </statOffsets>
+                <statFactors>
+                    <MeleeDamageFactor>1.05</MeleeDamageFactor>
+                </statFactors>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

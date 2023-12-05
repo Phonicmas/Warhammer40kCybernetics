@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Mechadendrite Neural System ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartBionicBase">
+        <defName>BEWH_MechadendriteNeuralSystem</defName>
+        <label>mechadendrite neural system</label>
+        <description>Various ports, circuits and bits and implanted into the spine. These allows the implantee to use later installed mechadendrites as if they were extensions of their limbs.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_MechadendriteNeuralSystem</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Steel>1</Steel>
+        </costList>
+        <statBases>
+            <Mass>0.3</Mass>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_MechadendriteNeuralSystem</defName>
+        <label>install mechadendrite neural system</label>
+        <description>Install mechadendrite neural system.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_MechadendriteNeuralSystem</ThingDef>
+            <HediffDef>BEWH_MechadendriteNeuralSystem</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing mechadendrite neural system.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_MechadendriteNeuralSystem</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_MechadendriteNeuralSystem</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Spine</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_MechadendriteNeuralSystem</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_MechadendriteNeuralSystem</defName>
+        <label>mechadendrite neural system</label>
+        <labelNoun>mechadendrite neural system</labelNoun>
+        <description>Installed mechadendrite neural system.</description>
+        <woundAnchorRange>0</woundAnchorRange>
+        <displayWound>true</displayWound>
+    </HediffDef>
+
+</Defs>
