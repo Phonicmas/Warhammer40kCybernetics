@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Dendrite Blade ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_DendriteBlade</defName>
+        <label>dendrite blade</label>
+        <description>A lethal weapon that almost seem to act on its own volition, Dendrite Blades consists of many linked metallic coils each ending in a serrated blade or wickedly sharp hook.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_DendriteBlade</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>1100</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_DendriteBlade</defName>
+        <workerClass>Cybernetics40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <label>install dendrite blade</label>
+        <description>Install dendrite blade.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_DendriteBlade</ThingDef>
+            <HediffDef>BEWH_DendriteBlade</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing dendrite blade.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_DendriteBlade</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_DendriteBlade</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_DendriteBlade</addsHediff>
+        <modExtensions>
+            <li Class="Cybernetics40k.DefModExtension_RequiresHediff">
+                <hediffDef>BEWH_MechadendriteNeuralSystem</hediffDef>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_DendriteBlade</defName>
+        <label>dendrite blade</label>
+        <labelNoun>dendrite blade</labelNoun>
+        <description>Installed dendrite blade.</description>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>dendrite blade</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>5</power>
+                        <cooldownTime>0.5</cooldownTime>
+                    </li>
+                    <li>
+                        <label>dendrite blade</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>5</power>
+                        <cooldownTime>0.5</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>1</powerUsage>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

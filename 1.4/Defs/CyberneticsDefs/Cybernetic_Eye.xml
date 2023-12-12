@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Cybernetic Eye ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_CyberneticEye</defName>
+        <label>cybernetic eye</label>
+        <description>An artificial eye built by a foreign empire a long time ago, the technology used to build these kind of cybernetics is unknown and as such not many exist.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_CyberneticEye</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>2200</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_CyberneticEye</defName>
+        <label>install cybernetic eye</label>
+        <description>Install cybernetic eye.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_CyberneticEye</ThingDef>
+            <HediffDef>BEWH_CyberneticEye</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing cybernetic eye.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_CyberneticEye</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_CyberneticEye</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Eye</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_CyberneticEye</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_CyberneticEye</defName>
+        <label>cybernetic eye</label>
+        <labelNoun>cybernetic eye</labelNoun>
+        <description>Installed cybernetic eye.</description>
+        <spawnThingOnRemoved>BEWH_CyberneticEye</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.4</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <initialSeverity>0</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <stages>
+            <li>
+                <label>Inactive</label>
+                <minSeverity>0</minSeverity>
+            </li>
+            <li>
+                <label>Active</label>
+                <minSeverity>1</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <postFactor>1.1</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>2</powerUsage>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

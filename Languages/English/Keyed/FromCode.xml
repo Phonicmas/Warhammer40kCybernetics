@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <InternalPower>Power ({0})</InternalPower>
+  <InternalPowerToolTip>This is the amount of internal power that the pawn currently has in their Internal Resevoir. It is used to power various other implants.</InternalPowerToolTip>
+
+</LanguageData>

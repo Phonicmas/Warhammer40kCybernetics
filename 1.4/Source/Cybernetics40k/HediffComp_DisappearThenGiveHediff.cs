@@ -74,9 +74,12 @@ namespace Cybernetics40k
                 Messages.Message(Props.messageOnDisappear.Formatted(base.Pawn.Named("PAWN")), base.Pawn, MessageTypeDefOf.PositiveEvent);
             }
 
-            if (!Props.skipIfAlreadyExists || !parent.pawn.health.hediffSet.HasHediff(Props.hediffDef))
+            if (Props.hediffDef != null)
             {
-                parent.pawn.health.AddHediff(Props.hediffDef);
+                if (!Props.skipIfAlreadyExists || !parent.pawn.health.hediffSet.HasHediff(Props.hediffDef))
+                {
+                    parent.pawn.health.AddHediff(Props.hediffDef);
+                }
             }
         }
 

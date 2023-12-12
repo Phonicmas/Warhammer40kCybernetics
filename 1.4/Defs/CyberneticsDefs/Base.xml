@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Ability Category Base -->
+    <AbilityCategoryDef>
+        <defName>BEWH_Cybernetics</defName>
+        <displayOrder>1010</displayOrder>
+    </AbilityCategoryDef>
+
+    <!-- Thing Category -->
+    <ThingCategoryDef>
+        <defName>BEWH_BodyPartsCybernetics</defName>
+        <label>cybernetics</label>
+        <parent>BodyParts</parent>
+    </ThingCategoryDef>
+
+    <!-- Cybernetic Base -->
+    <ThingDef Name="BodyPartCyberneticBase" ParentName="BodyPartBase" Abstract="True">
+        <techLevel>Spacer</techLevel>
+        <thingCategories Inherit="False">
+            <li>BEWH_BodyPartsCybernetics</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Item/Health/HealthItem</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.80</drawSize>
+            <color>(118,169,118)</color>
+        </graphicData>
+        <tradeTags>
+            <li>Bionic</li>
+            <li>BEWH_Cybernetic</li>
+        </tradeTags>
+        <statBases>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>0.3</Mass>
+        </statBases>
+        <thingSetMakerTags>
+            <li>RewardStandardCore</li>
+        </thingSetMakerTags>
+    </ThingDef>
+
+</Defs>

@@ -10,6 +10,8 @@ namespace Cybernetics40k
     {
         public static HediffDef BEWH_MechadendriteNeuralSystem;
 
+        public static HediffDef BEWH_InternalResevoir;
+
         static Cybernetics40kDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(Cybernetics40kDefOf));

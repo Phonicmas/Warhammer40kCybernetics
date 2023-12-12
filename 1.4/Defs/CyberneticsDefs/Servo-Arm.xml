@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Servo Arm ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_ServoArm</defName>
+        <label>servo-arm</label>
+        <description>These massive manipulators contain powerful crushing pincers designed for field repair but also useful in combat as well.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_ServoArm</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>3500</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_ServoArm</defName>
+        <label>install servo-arm</label>
+        <description>Install servo-arm.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_ServoArm</ThingDef>
+            <HediffDef>BEWH_ServoArm</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing servo-arm.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_ServoArm</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_ServoArm</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_ServoArm</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_ServoArm</defName>
+        <label>servo-arm</label>
+        <labelNoun>servo-arm</labelNoun>
+        <description>Installed servo-arm.</description>
+        <initialSeverity>0</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <stages>
+            <li>
+                <label>Inactive</label>
+                <minSeverity>0</minSeverity>
+                <statOffsets>
+                    <CarryingCapacity>100</CarryingCapacity>
+                    <ConstructionSpeed>0.35</ConstructionSpeed>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.85</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>Active</label>
+                <minSeverity>1</minSeverity>
+                <statOffsets>
+                    <CarryingCapacity>400</CarryingCapacity>
+                    <ConstructionSpeed>1.4</ConstructionSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>servo-arm</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>65</power>
+                        <armorPenetration>1.5</armorPenetration>
+                        <cooldownTime>4</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>4</powerUsage>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

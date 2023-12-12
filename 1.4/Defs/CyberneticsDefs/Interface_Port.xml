@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Interface Port ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_InterfacePort</defName>
+        <label>interface port</label>
+        <description>Powerful electromagnets that allows the pawn to cast forth a net of invisible energy to grab an unattended object.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_InterfacePort</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>1500</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_InterfacePort</defName>
+        <workerClass>Cybernetics40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <label>install interface port</label>
+        <description>Install an interface port.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_InterfacePort</ThingDef>
+            <HediffDef>BEWH_InterfacePort</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing interface port.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_InterfacePort</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_InterfacePort</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_InterfacePort</addsHediff>
+        <modExtensions>
+            <li Class="Cybernetics40k.DefModExtension_RequiresHediff">
+                <hediffDef>BEWH_InternalResevoir</hediffDef>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_InterfacePort</defName>
+        <label>interface port</label>
+        <labelNoun>an interface port</labelNoun>
+        <description>An installed interface port.</description>
+        <initialSeverity>0</initialSeverity>
+        <stages>
+            <li>
+                <label>Inactive</label>
+                <minSeverity>0</minSeverity>
+            </li>
+            <li>
+                <label>Active</label>
+                <minSeverity>1</minSeverity>
+                <statOffsets>
+                    <ResearchSpeed>0.4</ResearchSpeed>
+                    <HackingSpeed MayRequire="Ludeon.RimWorld.Ideology">2</HackingSpeed>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>2</powerUsage>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

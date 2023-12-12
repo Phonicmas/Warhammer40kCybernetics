@@ -51,15 +51,37 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="VFECore">
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.4\Assemblies\VFECore.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HarmonyPatch_PassivePowerVerbUsability.cs" />
+    <Compile Include="HediffComp_PassiveInternalPowerUser.cs" />
+    <Compile Include="CompAbilityEffect_ActiveInternalPowerUser.cs" />
+    <Compile Include="CompAbilityEffect_InternalResevoir.cs" />
+    <Compile Include="CompAbilityEffect_FerricLure.cs" />
+    <Compile Include="HediffCompProperties_PassiveInternalPowerUser.cs" />
+    <Compile Include="CompProperties_AbilityActiveInternalPowerUser.cs" />
+    <Compile Include="CompProperties_AbilityInternalResevoir.cs" />
+    <Compile Include="DefModExtension_RequiresHediff.cs" />
     <Compile Include="Cybernetics40kDefOf.cs" />
+    <Compile Include="CompProperties_AbilityFerricLure.cs" />
+    <Compile Include="Gizmo_ImplantPower.cs" />
+    <Compile Include="HediffCompProperties_ImplantPower.cs" />
     <Compile Include="HediffCompProperties_DisappearThenGiveHediff.cs" />
-    <Compile Include="Recipe_InstallMechadendrite.cs" />
+    <Compile Include="HediffComp_ImplantPower.cs" />
+    <Compile Include="Recipe_InstallInternalResevoir.cs" />
+    <Compile Include="Recipe_InstallImplantRequiringHediff.cs" />
     <Compile Include="HediffComp_DisappearThenGiveHediff.cs" />
     <Compile Include="Cybernetics40kMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

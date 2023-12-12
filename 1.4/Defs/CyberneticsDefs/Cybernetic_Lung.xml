@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Cybernetic Lung ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_CyberneticLung</defName>
+        <label>cybernetic lung</label>
+        <description>An artificial lung built by a foreign empire a long time ago, the technology used to build these kind of cybernetics is unknown and as such not many exist.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_CyberneticLung</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>2200</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_CyberneticLung</defName>
+        <label>install cybernetic lung</label>
+        <description>Install cybernetic lung.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_CyberneticLung</ThingDef>
+            <HediffDef>BEWH_CyberneticLung</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing cybernetic lung.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_CyberneticLung</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_CyberneticLung</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Lung</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_CyberneticLung</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_CyberneticLung</defName>
+        <label>cybernetic lung</label>
+        <labelNoun>cybernetic lung</labelNoun>
+        <description>Installed cybernetic lung.</description>
+        <spawnThingOnRemoved>BEWH_CyberneticLung</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.4</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <initialSeverity>0</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <stages>
+            <li>
+                <label>Inactive</label>
+                <minSeverity>0</minSeverity>
+            </li>
+            <li>
+                <label>Active</label>
+                <minSeverity>1</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <postFactor>1.1</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>2</powerUsage>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

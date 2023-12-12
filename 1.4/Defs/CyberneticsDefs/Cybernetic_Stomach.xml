@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Cybernetic Stomach ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_CyberneticStomach</defName>
+        <label>cybernetic stomach</label>
+        <description>An artificial stomach built by a foreign empire a long time ago, the technology used to build these kind of cybernetics is unknown and as such not many exist.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_CyberneticStomach</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>2200</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_CyberneticStomach</defName>
+        <label>install cybernetic stomach</label>
+        <description>Install cybernetic stomach.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_CyberneticStomach</ThingDef>
+            <HediffDef>BEWH_CyberneticStomach</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing cybernetic stomach.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_CyberneticStomach</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_CyberneticStomach</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Stomach</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_CyberneticStomach</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_CyberneticStomach</defName>
+        <label>cybernetic stomach</label>
+        <labelNoun>cybernetic stomach</labelNoun>
+        <description>Installed cybernetic stomach.</description>
+        <spawnThingOnRemoved>BEWH_CyberneticStomach</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.4</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <initialSeverity>0</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <stages>
+            <li>
+                <label>Inactive</label>
+                <minSeverity>0</minSeverity>
+            </li>
+            <li>
+                <label>Active</label>
+                <minSeverity>1</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Metabolism</capacity>
+                        <postFactor>1.2</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>4</powerUsage>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Internal resevoir ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_InternalResevoir</defName>
+        <label>internal resevoir</label>
+        <description>Acts as a powerful battery, storing energy for various implants.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_InternalResevoir</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>5000</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_InternalResevoir</defName>
+        <label>install internal resevoir</label>
+        <workerClass>Cybernetics40k.Recipe_InstallInternalResevoir</workerClass>
+        <description>Install an internal resevoir.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_InternalResevoir</ThingDef>
+            <HediffDef>BEWH_InternalResevoir</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing internal resevoir.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_InternalResevoir</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_InternalResevoir</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_InternalResevoir</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_InternalResevoir</defName>
+        <label>internal resevoir</label>
+        <labelNoun>an internal resevoir</labelNoun>
+        <description>An installed internal resevoir.</description>
+        <initialSeverity>1</initialSeverity>
+        <minSeverity>1</minSeverity>
+        <maxSeverity>5</maxSeverity>
+        <stages>
+            <li>
+                <label>Tier I</label>
+                <minSeverity>1</minSeverity>
+            </li>
+            <li>
+                <label>Tier II</label>
+                <minSeverity>2</minSeverity>
+            </li>
+            <li>
+                <label>Tier III</label>
+                <minSeverity>3</minSeverity>
+            </li>
+            <li>
+                <label>Tier IV</label>
+                <minSeverity>4</minSeverity>
+            </li>
+            <li>
+                <label>Tier V</label>
+                <minSeverity>5</minSeverity>
+            </li>
+        </stages>
+        <comps>
+            <li Class="Cybernetics40k.HediffCompProperties_ImplantPower">
+                <maxPower>500</maxPower>
+                <drainByDamageDef>EMP</drainByDamageDef>
+            </li>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>BEWH_InternalResevoir</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+    <!-- AbilityDef -->
+    <AbilityDef>
+        <defName>BEWH_InternalResevoir</defName>
+        <label>internal resevoir charge</label>
+        <description>Recharge internal resevoir by using power from nearby battery.</description>
+        <iconPath>Placeholder</iconPath>
+        <jobDef>CastAbilityOnThingMelee</jobDef>
+        <cooldownTicksRange>0</cooldownTicksRange>
+        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+        <hostile>false</hostile>
+        <category>BEWH_Cybernetics</category>
+        <verbProperties>
+            <verbClass>Verb_CastAbilityTouch</verbClass>
+            <warmupTime>0.5</warmupTime>
+            <range>-1</range>
+            <targetParams>
+                <canTargetItems>true</canTargetItems>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>true</canTargetBuildings>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="Cybernetics40k.CompProperties_AbilityRechargeInternalBattery"/>
+        </comps>
+    </AbilityDef>
+
+</Defs>
