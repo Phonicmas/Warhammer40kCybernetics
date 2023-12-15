@@ -15,7 +15,7 @@
         </statBases>
     </ThingDef>
     <!-- RecipeDef -->
-    <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
         <defName>BEWH_CyberneticLung</defName>
         <label>install cybernetic lung</label>
         <description>Install cybernetic lung.</description>
@@ -45,7 +45,7 @@
         <addsHediff>BEWH_CyberneticLung</addsHediff>
     </RecipeDef>
     <!-- HediffDef -->
-    <HediffDef ParentName="ImplantHediffBase">
+    <HediffDef ParentName="AddedBodyPartBase">
         <defName>BEWH_CyberneticLung</defName>
         <label>cybernetic lung</label>
         <labelNoun>cybernetic lung</labelNoun>
