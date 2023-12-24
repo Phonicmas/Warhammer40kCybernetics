@@ -116,7 +116,7 @@
         <defName>BEWH_UtilityMechadendriteFirefoam</defName>
         <label>firefoam</label>
         <description>Release a fire-retardant foam in a circular area.</description>
-        <iconPath>Placeholder</iconPath>
+        <iconPath>UI/Abilities/UtilityFirefoam</iconPath>
         <cooldownTicksRange>240000</cooldownTicksRange>
         <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
@@ -146,7 +146,7 @@
         <defName>BEWH_UtilityMechadendriteSmoke</defName>
         <label>smoke</label>
         <description>Release compressed smoke from concealed vents. Smoke reduces the accuracy of any shot fired through it, and prevents turrets from locking on entirely.</description>
-        <iconPath>Placeholder</iconPath>
+        <iconPath>UI/Abilities/UtilitySmoke</iconPath>
         <cooldownTicksRange>360000</cooldownTicksRange>
         <targetRequired>false</targetRequired>
         <hostile>false</hostile>

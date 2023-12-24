@@ -17,3 +17,8 @@
 
 <!--=== Psi-Booster ===-->
 <!-- Increases Psy Sens and maybe other psy related stuff (Requires psyker gene) -->
+
+
+Add toggle for passive power drain on resevoir
+
+Add to description that mechadenderites need the neural system to be able to install

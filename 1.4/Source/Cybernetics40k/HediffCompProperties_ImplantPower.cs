@@ -9,6 +9,8 @@ namespace Cybernetics40k
 
         public DamageDef drainByDamageDef;
 
+        public bool passiveDrainNearby = false;
+
         public HediffCompProperties_ImplantPower()
         {
             compClass = typeof(HediffComp_ImplantPower);

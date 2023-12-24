@@ -69,7 +69,7 @@
         <defName>BEWH_FerricLureImplant</defName>
         <label>ferric lure</label>
         <description>Grab unattended object.</description>
-        <iconPath>Placeholder</iconPath>
+        <iconPath>UI/Abilities/FerricLure</iconPath>
         <cooldownTicksRange>0</cooldownTicksRange>
         <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>

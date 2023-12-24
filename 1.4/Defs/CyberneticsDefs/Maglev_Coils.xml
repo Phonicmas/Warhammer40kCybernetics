@@ -69,7 +69,7 @@
         <defName>BEWH_MaglevCoils</defName>
         <label>maglev coil levitation</label>
         <description>Levitate for some time, ignoring terrain slowdown.</description>
-        <iconPath>Placeholder</iconPath>
+        <iconPath>UI/Abilities/MaglevCoils</iconPath>
         <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
         <hostile>false</hostile>

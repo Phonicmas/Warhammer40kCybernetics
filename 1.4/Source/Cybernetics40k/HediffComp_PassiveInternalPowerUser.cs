@@ -1,6 +1,5 @@
 ﻿using Verse;
 
-
 namespace Cybernetics40k
 {
     public class HediffComp_PassiveInternalPowerUser : HediffComp

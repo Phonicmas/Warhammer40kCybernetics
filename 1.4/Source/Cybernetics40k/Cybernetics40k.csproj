@@ -65,14 +65,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompAbilityEffect_PassiveRechargeOff.cs" />
+    <Compile Include="CompAbilityEffect_PassiveRechargeOn.cs" />
+    <Compile Include="CompProperties_AbilityRechargeInternalBattery.cs" />
+    <Compile Include="CompProperties_PassiveRechargeOff.cs" />
     <Compile Include="HarmonyPatch_PassivePowerVerbUsability.cs" />
     <Compile Include="HediffComp_PassiveInternalPowerUser.cs" />
     <Compile Include="CompAbilityEffect_ActiveInternalPowerUser.cs" />
-    <Compile Include="CompAbilityEffect_InternalResevoir.cs" />
+    <Compile Include="CompAbilityEffect_RechargeInternalBattery.cs" />
     <Compile Include="CompAbilityEffect_FerricLure.cs" />
     <Compile Include="HediffCompProperties_PassiveInternalPowerUser.cs" />
     <Compile Include="CompProperties_AbilityActiveInternalPowerUser.cs" />
-    <Compile Include="CompProperties_AbilityInternalResevoir.cs" />
+    <Compile Include="CompProperties_PassiveRechargeOn.cs" />
     <Compile Include="DefModExtension_RequiresHediff.cs" />
     <Compile Include="Cybernetics40kDefOf.cs" />
     <Compile Include="CompProperties_AbilityFerricLure.cs" />

@@ -74,7 +74,7 @@
         <jobDef>CastAbilityOnThing</jobDef>
         <targetRequired>False</targetRequired>
         <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
-        <iconPath>Placeholder</iconPath>
+        <iconPath>UI/Abilities/BlackBlood</iconPath>
         <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
         <category>BEWH_Cybernetics</category>

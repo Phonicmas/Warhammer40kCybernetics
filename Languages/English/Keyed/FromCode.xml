@@ -4,4 +4,7 @@
   <InternalPower>Power ({0})</InternalPower>
   <InternalPowerToolTip>This is the amount of internal power that the pawn currently has in their Internal Resevoir. It is used to power various other implants.</InternalPowerToolTip>
 
+  <TurnOffPassive>Turn off passive recharge</TurnOffPassive>
+  <TurnOnPassive>Turn on passive recharge</TurnOnPassive>
+
 </LanguageData>

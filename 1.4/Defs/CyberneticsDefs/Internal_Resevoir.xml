@@ -80,10 +80,11 @@
             <li Class="Cybernetics40k.HediffCompProperties_ImplantPower">
                 <maxPower>500</maxPower>
                 <drainByDamageDef>EMP</drainByDamageDef>
+                <passiveDrainNearby>True</passiveDrainNearby>    
             </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
-                    <li>BEWH_InternalResevoir</li>
+                    <li>BEWH_PassiveRechargeOff</li>
                 </abilityDefs>
             </li>
         </comps>
