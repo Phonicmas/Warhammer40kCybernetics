@@ -6,7 +6,7 @@
     <ThingDef ParentName="BodyPartCyberneticBase">
         <defName>BEWH_ManipulatorMechadendrite</defName>
         <label>manipulator mechadendrite</label>
-        <description>This artificial limb is a great aid to those working in industrial or technical areas.</description>
+        <description>This artificial limb is a great aid to those working in industrial or technical areas. \n\nRequires the pawn to have an installed Mechadendrite Neural System to be able to install this.</description>
         <descriptionHyperlinks>
             <RecipeDef>BEWH_ManipulatorMechadendrite</RecipeDef>
         </descriptionHyperlinks>
@@ -17,7 +17,7 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_ManipulatorMechadendrite</defName>
-        <workerClass>Cybernetics40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
         <label>install manipulator mechadendrite</label>
         <description>Install manipulator mechadendrite.</description>
         <descriptionHyperlinks>
@@ -45,7 +45,7 @@
         </appliedOnFixedBodyParts>
         <addsHediff>BEWH_ManipulatorMechadendrite</addsHediff>
         <modExtensions>
-            <li Class="Cybernetics40k.DefModExtension_RequiresHediff">
+            <li Class="Core40k.DefModExtension_RequiresHediff">
                 <hediffDef>BEWH_MechadendriteNeuralSystem</hediffDef>
             </li>
         </modExtensions>

@@ -17,7 +17,7 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_MaglevCoils</defName>
-        <workerClass>Cybernetics40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
         <label>install maglev coils</label>
         <description>Install an maglev coils.</description>
         <descriptionHyperlinks>
@@ -45,7 +45,7 @@
         </appliedOnFixedBodyParts>
         <addsHediff>BEWH_MaglevCoils</addsHediff>
         <modExtensions>
-            <li Class="Cybernetics40k.DefModExtension_RequiresHediff">
+            <li Class="Core40k.DefModExtension_RequiresHediff">
                 <hediffDef>BEWH_InternalResevoir</hediffDef>
             </li>
         </modExtensions>

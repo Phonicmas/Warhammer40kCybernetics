@@ -6,7 +6,7 @@
     <ThingDef ParentName="BodyPartCyberneticBase">
         <defName>BEWH_DendriteBlade</defName>
         <label>dendrite blade</label>
-        <description>A lethal weapon that almost seem to act on its own volition, Dendrite Blades consists of many linked metallic coils each ending in a serrated blade or wickedly sharp hook.</description>
+        <description>A lethal weapon that almost seem to act on its own volition, Dendrite Blades consists of many linked metallic coils each ending in a serrated blade or wickedly sharp hook. \n\nRequires the pawn to have an installed Mechadendrite Neural System to be able to install this.</description>
         <descriptionHyperlinks>
             <RecipeDef>BEWH_DendriteBlade</RecipeDef>
         </descriptionHyperlinks>
@@ -17,7 +17,7 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_DendriteBlade</defName>
-        <workerClass>Cybernetics40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
         <label>install dendrite blade</label>
         <description>Install dendrite blade.</description>
         <descriptionHyperlinks>
@@ -45,7 +45,7 @@
         </appliedOnFixedBodyParts>
         <addsHediff>BEWH_DendriteBlade</addsHediff>
         <modExtensions>
-            <li Class="Cybernetics40k.DefModExtension_RequiresHediff">
+            <li Class="Core40k.DefModExtension_RequiresHediff">
                 <hediffDef>BEWH_MechadendriteNeuralSystem</hediffDef>
             </li>
         </modExtensions>

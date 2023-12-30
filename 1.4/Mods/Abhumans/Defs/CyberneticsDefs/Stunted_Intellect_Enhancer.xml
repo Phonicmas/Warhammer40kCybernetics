@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Stunted Intellect Enhancer ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_StuntedIntellectEnhancer</defName>
+        <label>stunted intellect enhancer</label>
+        <description>An implant, placed into an Ogryn or anyone suffering from stunted intellect, which makes them smarter and able to do things they could not before.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_StuntedIntellectEnhancer</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>7500</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_StuntedIntellectEnhancer</defName>
+        <label>install stunted intellect enhancer</label>
+        <description>Install stunted intellect enhancer.</description>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringGene</workerClass>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_StuntedIntellectEnhancer</ThingDef>
+            <HediffDef>BEWH_StuntedIntellectEnhancer</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing stunted intellect enhancer.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_StuntedIntellectEnhancer</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_StuntedIntellectEnhancer</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Brain</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_StuntedIntellectEnhancer</addsHediff>
+        <modExtensions>
+            <li Class="Core40k.DefModExtension_RequiresGene">
+                <geneDef>BEWH_OgrynStuntedIntellect</geneDef>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_StuntedIntellectEnhancer</defName>
+        <label>stunted intellect enhancer</label>
+        <description>Installed stunted intellect enhancer.</description>
+        <hediffClass>Abhumans40k.Hediff_StuntedIntellectEnhancer</hediffClass>
+    </HediffDef>
+
+</Defs>

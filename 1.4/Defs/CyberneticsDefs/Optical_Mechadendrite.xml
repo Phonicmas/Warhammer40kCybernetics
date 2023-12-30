@@ -6,7 +6,7 @@
     <ThingDef ParentName="BodyPartCyberneticBase">
         <defName>BEWH_OpticalMechadendrite</defName>
         <label>optical mechadendrite</label>
-        <description>This implant is highly flexible and extend its tip which is covered in cameras and optical sensors.</description>
+        <description>This implant is highly flexible and extend its tip which is covered in cameras and optical sensors. \n\nRequires the pawn to have an installed Mechadendrite Neural System to be able to install this.</description>
         <descriptionHyperlinks>
             <RecipeDef>BEWH_OpticalMechadendrite</RecipeDef>
         </descriptionHyperlinks>
@@ -17,7 +17,7 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_OpticalMechadendrite</defName>
-        <workerClass>Cybernetics40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
         <label>install optical mechadendrite</label>
         <description>Install optical mechadendrite.</description>
         <descriptionHyperlinks>
@@ -45,7 +45,7 @@
         </appliedOnFixedBodyParts>
         <addsHediff>BEWH_OpticalMechadendrite</addsHediff>
         <modExtensions>
-            <li Class="Cybernetics40k.DefModExtension_RequiresHediff">
+            <li Class="Core40k.DefModExtension_RequiresHediff">
                 <hediffDef>BEWH_MechadendriteNeuralSystem</hediffDef>
             </li>
         </modExtensions>

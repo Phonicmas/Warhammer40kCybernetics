@@ -68,7 +68,7 @@
     <Compile Include="CompAbilityEffect_PassiveRechargeOff.cs" />
     <Compile Include="CompAbilityEffect_PassiveRechargeOn.cs" />
     <Compile Include="CompProperties_AbilityRechargeInternalBattery.cs" />
-    <Compile Include="CompProperties_PassiveRechargeOff.cs" />
+    <Compile Include="CompProperties_AbilityPassiveRechargeOff.cs" />
     <Compile Include="HarmonyPatch_PassivePowerVerbUsability.cs" />
     <Compile Include="HediffComp_PassiveInternalPowerUser.cs" />
     <Compile Include="CompAbilityEffect_ActiveInternalPowerUser.cs" />
@@ -76,16 +76,13 @@
     <Compile Include="CompAbilityEffect_FerricLure.cs" />
     <Compile Include="HediffCompProperties_PassiveInternalPowerUser.cs" />
     <Compile Include="CompProperties_AbilityActiveInternalPowerUser.cs" />
-    <Compile Include="CompProperties_PassiveRechargeOn.cs" />
-    <Compile Include="DefModExtension_RequiresHediff.cs" />
+    <Compile Include="CompProperties_AbilityPassiveRechargeOn.cs" />
     <Compile Include="Cybernetics40kDefOf.cs" />
     <Compile Include="CompProperties_AbilityFerricLure.cs" />
     <Compile Include="Gizmo_ImplantPower.cs" />
     <Compile Include="HediffCompProperties_ImplantPower.cs" />
     <Compile Include="HediffCompProperties_DisappearThenGiveHediff.cs" />
     <Compile Include="HediffComp_ImplantPower.cs" />
-    <Compile Include="Recipe_InstallInternalResevoir.cs" />
-    <Compile Include="Recipe_InstallImplantRequiringHediff.cs" />
     <Compile Include="HediffComp_DisappearThenGiveHediff.cs" />
     <Compile Include="Cybernetics40kMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

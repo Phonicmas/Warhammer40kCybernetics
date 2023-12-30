@@ -32,7 +32,7 @@
         </tradeTags>
         <statBases>
             <DeteriorationRate>0</DeteriorationRate>
-            <Mass>0.3</Mass>
+            <Mass>0.5</Mass>
         </statBases>
         <thingSetMakerTags>
             <li>RewardStandardCore</li>

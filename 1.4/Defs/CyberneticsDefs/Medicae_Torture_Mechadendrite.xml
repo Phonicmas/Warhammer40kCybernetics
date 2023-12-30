@@ -6,7 +6,7 @@
     <ThingDef ParentName="BodyPartCyberneticBase">
         <defName>BEWH_MedicaeTortureMechadendrite</defName>
         <label>medicae/torture mechadendrite</label>
-        <description>Made of thin, dextrous tubes tipped with a variety of fascinating needles and blades, this mechadendrite can either heal or harm depending on intent.</description>
+        <description>Made of thin, dextrous tubes tipped with a variety of fascinating needles and blades, this mechadendrite can either heal or harm depending on intent. \n\nRequires the pawn to have an installed Mechadendrite Neural System to be able to install this.</description>
         <descriptionHyperlinks>
             <RecipeDef>BEWH_MedicaeTortureMechadendrite</RecipeDef>
         </descriptionHyperlinks>
@@ -17,7 +17,7 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_MedicaeTortureMechadendrite</defName>
-        <workerClass>Cybernetics40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
         <label>install medicae/torture mechadendrite</label>
         <description>Install medicae/torture mechadendrite.</description>
         <descriptionHyperlinks>
@@ -45,7 +45,7 @@
         </appliedOnFixedBodyParts>
         <addsHediff>BEWH_MedicaeTortureMechadendrite</addsHediff>
         <modExtensions>
-            <li Class="Cybernetics40k.DefModExtension_RequiresHediff">
+            <li Class="Core40k.DefModExtension_RequiresHediff">
                 <hediffDef>BEWH_MechadendriteNeuralSystem</hediffDef>
             </li>
         </modExtensions>

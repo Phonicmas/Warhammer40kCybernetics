@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <!-- ===== Make toggable by VEF and conditionally check for abhumans to patch stunted intelligence enhancer ===== -->
+    <Operation Class="VFECore.PatchOperationToggableSequence">
+        <enabled>False</enabled>
+        <mods>
+            <li>Warhammer 40.000 - Abhumans</li>
+        </mods>
+        <label>Make cybernetics craftable</label>
+        <operations>
+            <!-- Researchs -->
+            <!-- Internal Power-->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef ParentName="BEWH_CyberneticsBase">
+                        <defName>BEWH_InternalPower</defName>
+                        <label>Internal Power</label>
+                        <description>Allows the crafting implants that grants internal power that other implants can use.</description>
+                        <baseCost>4000</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>5</researchViewY>
+                    </ResearchProjectDef>
+                </value>
+            </li>
+            <!-- Active Power User -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef ParentName="BEWH_CyberneticsBase">
+                        <defName>BEWH_BurstUsers</defName>
+                        <label>Cybernetic Implants - Burst Users</label>
+                        <description>Allows the crafting of implants that actively uses burst of power from an Internal Resevoir to achieve an effect.</description>
+                        <baseCost>5000</baseCost>
+                        <prerequisites>
+                            <li>BEWH_InternalPower</li>
+                        </prerequisites>
+                        <researchViewX>1</researchViewX>
+                        <researchViewY>5</researchViewY>
+                    </ResearchProjectDef>
+                </value>
+            </li>
+            <!-- Passive Power User -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef ParentName="BEWH_CyberneticsBase">
+                        <defName>BEWH_PassiveUsers</defName>
+                        <label>Cybernetic Implants - Passive Users</label>
+                        <description>Allows the crafting of implants that passively uses power from an Internal Resevoir to achieve an effect.</description>
+                        <baseCost>5000</baseCost>
+                        <prerequisites>
+                            <li>BEWH_InternalPower</li>
+                        </prerequisites>
+                        <researchViewX>1</researchViewX>
+                        <researchViewY>6</researchViewY>
+                    </ResearchProjectDef>
+                </value>
+            </li>
+            <!-- Mechadendrites -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef ParentName="BEWH_CyberneticsBase">
+                        <defName>BEWH_Mechadendrites</defName>
+                        <label>Mechanicus Assimilation</label>
+                        <description>Allows the crafting of Mechadendrites and the Mechadendrite Neural System which is required to install other Mechadendrites.</description>
+                        <baseCost>6000</baseCost>
+                        <prerequisites>
+                            <li>BEWH_InternalPower</li>
+                        </prerequisites>
+                        <researchViewX>1</researchViewX>
+                        <researchViewY>7</researchViewY>
+                    </ResearchProjectDef>
+                </value>
+            </li>
+            <!-- Cybernetics-->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef ParentName="BEWH_CyberneticsBase">
+                        <defName>BEWH_Cybernetics</defName>
+                        <label>Cybernetics</label>
+                        <description>Stronger than normal bionics but weaker than archotech bionics. However when used in tandem with an Internal Resevoir, they will passivly drain the battery and provide a buff that will make them slightly better than archotech.</description>
+                        <baseCost>6000</baseCost>
+                        <prerequisites>
+                            <li>BEWH_InternalPower</li>
+                        </prerequisites>
+                        <researchViewX>1</researchViewX>
+                        <researchViewY>8</researchViewY>
+                    </ResearchProjectDef>
+                </value>
+            </li>
+            <!-- Implants -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef ParentName="BEWH_CyberneticsBase">
+                        <defName>BEWH_Implants</defName>
+                        <label>Cybernetic Implants</label>
+                        <description>Allows the crafting of cybernetic implants.</description>
+                        <baseCost>5000</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>6</researchViewY>
+                    </ResearchProjectDef>
+                </value>
+            </li>
+            <!-- Implants Chaos -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef ParentName="BEWH_CyberneticsBase">
+                        <defName>BEWH_ImplantsChaos</defName>
+                        <label>Cybernetic Chaos Implants</label>
+                        <description>Allows the crafting of cybernetic chaos implants.</description>
+                        <baseCost>5000</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>7</researchViewY>
+                    </ResearchProjectDef>
+                </value>
+            </li>
+            <!-- Base -->
+            <!-- Base -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[@Name = "BodyPartCyberneticBase"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                        <workSkill>Crafting</workSkill>
+                        <effectWorking>Smith</effectWorking>
+                        <soundWorking>Recipe_Smith</soundWorking>
+                        <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+                        <recipeUsers>
+                            <li>FabricationBench</li>
+                        </recipeUsers>
+                    </recipeMaker>
+                </value>
+            </li>
+            <!-- Implants -->
+            <!-- Black Blood -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_BlackBlood"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>15</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Implants</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>100</Steel>
+                        <Plasteel>50</Plasteel>
+                        <ComponentIndustrial>10</ComponentIndustrial>
+                        <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_BlackBlood"]/statBases</xpath>
+                <value>
+                    <WorkToMake>15000</WorkToMake>
+                </value>
+            </li>
+            <!-- Embedded Auspex -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_EmbeddedAuspex"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>13</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Implants</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>65</Steel>
+                        <Plasteel>25</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_EmbeddedAuspex"]/statBases</xpath>
+                <value>
+                    <WorkToMake>10000</WorkToMake>
+                </value>
+            </li>
+            <!-- Respiration Implant -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_RespirationImplant"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>13</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Implants</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>65</Steel>
+                        <Plasteel>25</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_RespirationImplant"]/statBases</xpath>
+                <value>
+                    <WorkToMake>10000</WorkToMake>
+                </value>
+            </li>
+            <!-- Synthmuscle -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_Synthmuscle"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>13</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Implants</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>75</Steel>
+                        <Plasteel>35</Plasteel>
+                        <ComponentIndustrial>6</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_Synthmuscle"]/statBases</xpath>
+                <value>
+                    <WorkToMake>15000</WorkToMake>
+                </value>
+            </li>
+            <!-- Chaos Implant -->
+            <!-- Synthmuscle -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_UndeadHeart"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_ImplantsChaos</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>80</Steel>
+                        <Plasteel>50</Plasteel>
+                        <ComponentIndustrial>6</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_UndeadHeart"]/statBases</xpath>
+                <value>
+                    <WorkToMake>25000</WorkToMake>
+                </value>
+            </li>
+            <!-- Internal Power -->
+            <!-- Internal Reservoir -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_InternalResevoir"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>15</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_InternalPower</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>100</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>12</ComponentIndustrial>
+                        <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_InternalResevoir"]/statBases</xpath>
+                <value>
+                    <WorkToMake>20000</WorkToMake>
+                </value>
+            </li>
+            <!-- Active Power Users -->
+            <!-- Maglev Coil -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_MaglevCoils"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>14</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_BurstUsers</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>80</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>10</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_MaglevCoils"]/statBases</xpath>
+                <value>
+                    <WorkToMake>20000</WorkToMake>
+                </value>
+            </li>
+            <!-- Ferric Lure -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_FerricLureImplant"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>14</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_BurstUsers</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>80</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>10</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_FerricLureImplant"]/statBases</xpath>
+                <value>
+                    <WorkToMake>20000</WorkToMake>
+                </value>
+            </li>
+            <!-- Passive Power Users -->
+            <!-- Mechanicus Assimilation -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_MechanicusAssimilation"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_PassiveUsers</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>140</Steel>
+                        <Plasteel>55</Plasteel>
+                        <ComponentIndustrial>15</ComponentIndustrial>
+                        <ComponentSpacer>5</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_MechanicusAssimilation"]/statBases</xpath>
+                <value>
+                    <WorkToMake>40000</WorkToMake>
+                </value>
+            </li>
+            <!-- Interface Port -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_InterfacePort"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>12</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_PassiveUsers</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>70</Steel>
+                        <Plasteel>30</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_InterfacePort"]/statBases</xpath>
+                <value>
+                    <WorkToMake>10000</WorkToMake>
+                </value>
+            </li>
+            <!-- Mechadendrites -->
+            <!-- Mechadendrite Neural System -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_MechadendriteNeuralSystem"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>15</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Mechadendrites</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>130</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>12</ComponentIndustrial>
+                        <ComponentSpacer>3</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_MechadendriteNeuralSystem"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Dendrites Blades -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_DendriteBlade"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>13</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Mechadendrites</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>80</Steel>
+                        <Plasteel>20</Plasteel>
+                        <ComponentIndustrial>8</ComponentIndustrial>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_DendriteBlade"]/statBases</xpath>
+                <value>
+                    <WorkToMake>8000</WorkToMake>
+                </value>
+            </li>
+            <!-- Manipulator Mechadendrite -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_ManipulatorMechadendrite"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>14</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Mechadendrites</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>90</Steel>
+                        <Plasteel>30</Plasteel>
+                        <ComponentIndustrial>6</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_ManipulatorMechadendrite"]/statBases</xpath>
+                <value>
+                    <WorkToMake>20000</WorkToMake>
+                </value>
+            </li>
+            <!-- Medicae/Torture Mechadendrite -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_MedicaeTortureMechadendrite"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>14</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Mechadendrites</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>90</Steel>
+                        <Plasteel>30</Plasteel>
+                        <ComponentIndustrial>6</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_MedicaeTortureMechadendrite"]/statBases</xpath>
+                <value>
+                    <WorkToMake>20000</WorkToMake>
+                </value>
+            </li>
+            <!-- Optical Mechadendrite -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_OpticalMechadendrite"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>14</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Mechadendrites</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>90</Steel>
+                        <Plasteel>30</Plasteel>
+                        <ComponentIndustrial>6</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_OpticalMechadendrite"]/statBases</xpath>
+                <value>
+                    <WorkToMake>20000</WorkToMake>
+                </value>
+            </li>
+            <!-- Utillity Mechadendrite -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_UtilityMechadendrite"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>14</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Mechadendrites</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>90</Steel>
+                        <Plasteel>30</Plasteel>
+                        <ComponentIndustrial>8</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_UtilityMechadendrite"]/statBases</xpath>
+                <value>
+                    <WorkToMake>20000</WorkToMake>
+                </value>
+            </li>
+            <!-- Servo Arm -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_ServoArm"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>15</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Mechadendrites</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>120</Steel>
+                        <Plasteel>35</Plasteel>
+                        <ComponentIndustrial>10</ComponentIndustrial>
+                        <ComponentSpacer>2</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_ServoArm"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetics -->
+            <!-- Cybernetic Arm -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticArm"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticArm"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Leg -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticLeg"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticLeg"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Ear -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticEar"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticEar"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Eye -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticEye"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticEye"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Lung -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticLung"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticLung"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Kidney -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticKidney"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticKidney"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Stomach -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticStomach"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticStomach"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Heart -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticHeart"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticHeart"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Jaw -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticJaw"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticJaw"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Liver -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticLiver"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticLiver"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+            <!-- Cybernetic Spine -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticSpine"]</xpath>
+                <value>
+                    <recipeMaker>
+                        <skillRequirements>
+                            <Crafting>16</Crafting>
+                        </skillRequirements>
+                        <researchPrerequisites>
+                            <li>BEWH_Cybernetics</li>
+                        </researchPrerequisites>
+                    </recipeMaker>
+                    <costList>
+                        <Steel>115</Steel>
+                        <Plasteel>40</Plasteel>
+                        <ComponentIndustrial>5</ComponentIndustrial>
+                        <ComponentSpacer>1</ComponentSpacer>
+                    </costList>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName = "BEWH_CyberneticSpine"]/statBases</xpath>
+                <value>
+                    <WorkToMake>30000</WorkToMake>
+                </value>
+            </li>
+
+            <!-- Abhumans installed -->
+            <li Class="PatchOperationFindMod">
+                <mods>
+                    <li>Warhammer 40.000 - Abhumans</li>
+                </mods>
+                <match Class="PatchOperationSequence">
+                    <operations>
+
+                        <li Class="PatchOperationAdd">
+                            <xpath>Defs/ThingDef[defName = "BEWH_StuntedIntellectEnhancer"]</xpath>
+                            <value>
+                                <recipeMaker>
+                                    <skillRequirements>
+                                        <Crafting>14</Crafting>
+                                    </skillRequirements>
+                                    <researchPrerequisites>
+                                        <li>BEWH_Implants</li>
+                                    </researchPrerequisites>
+                                </recipeMaker>
+                                <costList>
+                                    <Steel>50</Steel>
+                                    <Plasteel>35</Plasteel>
+                                    <ComponentIndustrial>8</ComponentIndustrial>
+                                    <ComponentSpacer>4</ComponentSpacer>
+                                </costList>
+                            </value>
+                        </li>
+                        <li Class="PatchOperationAdd">
+                            <xpath>Defs/ThingDef[defName = "BEWH_StuntedIntellectEnhancer"]/statBases</xpath>
+                            <value>
+                                <WorkToMake>18000</WorkToMake>
+                            </value>
+                        </li>
+
+                    </operations>
+                </match>
+            </li>
+
+        </operations>
+    </Operation>
+
+
+</Patch>

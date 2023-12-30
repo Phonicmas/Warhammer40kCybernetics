@@ -18,7 +18,7 @@
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_InternalResevoir</defName>
         <label>install internal resevoir</label>
-        <workerClass>Cybernetics40k.Recipe_InstallInternalResevoir</workerClass>
+        <workerClass>Core40k.Recipe_InstallImplantWithLevels</workerClass>
         <description>Install an internal resevoir.</description>
         <descriptionHyperlinks>
             <ThingDef>BEWH_InternalResevoir</ThingDef>
@@ -80,10 +80,11 @@
             <li Class="Cybernetics40k.HediffCompProperties_ImplantPower">
                 <maxPower>500</maxPower>
                 <drainByDamageDef>EMP</drainByDamageDef>
-                <passiveDrainNearby>True</passiveDrainNearby>    
+                <passiveDrainNearby>True</passiveDrainNearby>
             </li>
             <li Class="HediffCompProperties_GiveAbility">
                 <abilityDefs>
+                    <li>BEWH_InternalResevoir</li>
                     <li>BEWH_PassiveRechargeOff</li>
                 </abilityDefs>
             </li>

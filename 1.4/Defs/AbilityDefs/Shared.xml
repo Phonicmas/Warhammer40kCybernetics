@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <!-- Turn off passive recharge -->
-    <AbilityDef>
-        <defName>BEWH_PassiveRechargeOff</defName>
-        <label>turn off passive recharge</label>
-        <description>Turn off passive recharge.</description>
-        <iconPath>UI/Abilities/PassiveRechargeOff</iconPath>
-        <cooldownTicksRange>0</cooldownTicksRange>
-        <targetRequired>False</targetRequired>
-        <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
-        <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
-        <hostile>false</hostile>
-        <category>BEWH_Cybernetics</category>
-        <verbProperties>
-            <verbClass>Verb_CastAbility</verbClass>
-            <range>0</range>
-            <drawAimPie>False</drawAimPie>
-            <requireLineOfSight>False</requireLineOfSight>
-            <targetParams>
-              <canTargetSelf>true</canTargetSelf>
-            </targetParams>
-          </verbProperties>
-        <comps>
-            <li Class="Cybernetics40k.CompProperties_AbilityPassiveRechargeOff"/>
-        </comps>
-    </AbilityDef>
+  <!-- Turn off passive recharge -->
+  <AbilityDef>
+    <defName>BEWH_PassiveRechargeOff</defName>
+    <label>turn off passive recharge</label>
+    <description>Turn off passive recharge.</description>
+    <iconPath>UI/Abilities/PassiveRechargeOff</iconPath>
+    <cooldownTicksRange>0</cooldownTicksRange>
+    <targetRequired>False</targetRequired>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <hostile>false</hostile>
+    <category>BEWH_Cybernetics</category>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Cybernetics40k.CompProperties_AbilityPassiveRechargeOff"/>
+    </comps>
+  </AbilityDef>
 
-    <!-- Turn on passive recharge -->
-    <AbilityDef>
-      <defName>BEWH_PassiveRechargeOn</defName>
-      <label>turn on passive recharge</label>
-      <description>Turn on passive recharge.</description>
-      <iconPath>UI/Abilities/PassiveRechargeOn</iconPath>
-      <cooldownTicksRange>0</cooldownTicksRange>
-      <targetRequired>False</targetRequired>
-      <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
-      <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
-      <hostile>false</hostile>
-      <category>BEWH_Cybernetics</category>
-      <verbProperties>
-          <verbClass>Verb_CastAbility</verbClass>
-          <range>0</range>
-          <drawAimPie>False</drawAimPie>
-          <requireLineOfSight>False</requireLineOfSight>
-          <targetParams>
-            <canTargetSelf>true</canTargetSelf>
-          </targetParams>
-        </verbProperties>
-      <comps>
-          <li Class="Cybernetics40k.CompProperties_AbilityPassiveRechargeOn"/>
-      </comps>
+  <!-- Turn on passive recharge -->
+  <AbilityDef>
+    <defName>BEWH_PassiveRechargeOn</defName>
+    <label>turn on passive recharge</label>
+    <description>Turn on passive recharge.</description>
+    <iconPath>UI/Abilities/PassiveRechargeOn</iconPath>
+    <cooldownTicksRange>0</cooldownTicksRange>
+    <targetRequired>False</targetRequired>
+    <displayGizmoWhileUndrafted>true</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
+    <hostile>false</hostile>
+    <category>BEWH_Cybernetics</category>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>0</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+      <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="Cybernetics40k.CompProperties_AbilityPassiveRechargeOn"/>
+    </comps>
   </AbilityDef>
 
 </Defs>

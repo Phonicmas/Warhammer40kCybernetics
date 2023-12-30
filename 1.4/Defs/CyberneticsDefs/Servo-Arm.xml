@@ -6,7 +6,7 @@
     <ThingDef ParentName="BodyPartCyberneticBase">
         <defName>BEWH_ServoArm</defName>
         <label>servo-arm</label>
-        <description>These massive manipulators contain powerful crushing pincers designed for field repair but also useful in combat as well.</description>
+        <description>These massive manipulators contain powerful crushing pincers designed for field repair but also useful in combat as well. \n\nRequires the pawn to have an installed Mechadendrite Neural System to be able to install this.</description>
         <descriptionHyperlinks>
             <RecipeDef>BEWH_ServoArm</RecipeDef>
         </descriptionHyperlinks>
@@ -17,6 +17,7 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_ServoArm</defName>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
         <label>install servo-arm</label>
         <description>Install servo-arm.</description>
         <descriptionHyperlinks>
@@ -43,6 +44,11 @@
             <li>Shoulder</li>
         </appliedOnFixedBodyParts>
         <addsHediff>BEWH_ServoArm</addsHediff>
+        <modExtensions>
+            <li Class="Core40k.DefModExtension_RequiresHediff">
+                <hediffDef>BEWH_MechadendriteNeuralSystem</hediffDef>
+            </li>
+        </modExtensions>
     </RecipeDef>
     <!-- HediffDef -->
     <HediffDef ParentName="ImplantHediffBase">
