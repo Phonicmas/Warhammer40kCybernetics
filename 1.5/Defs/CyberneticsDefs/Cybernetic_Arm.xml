@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Cybernetic Arm ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_CyberneticArm</defName>
+        <label>cybernetic arm</label>
+        <description>An artificial arm built by a foreign empire a long time ago, the technology used to build these kind of cybernetics is unknown and as such not many exist.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_CyberneticArm</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>2200</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+        <defName>BEWH_CyberneticArm</defName>
+        <label>install cybernetic arm</label>
+        <description>Install cybernetic arm.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_CyberneticArm</ThingDef>
+            <HediffDef>BEWH_CyberneticArm</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing cybernetic arm.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_CyberneticArm</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_CyberneticArm</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Arm</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_CyberneticArm</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="AddedBodyPartBase">
+        <defName>BEWH_CyberneticArm</defName>
+        <label>cybernetic arm</label>
+        <labelNoun>cybernetic arm</labelNoun>
+        <description>Installed cybernetic arm.</description>
+        <spawnThingOnRemoved>BEWH_CyberneticArm</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.4</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <initialSeverity>0.01</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <stages>
+            <li>
+                <label>Inactive</label>
+                <minSeverity>0</minSeverity>
+            </li>
+            <li>
+                <label>Active</label>
+                <minSeverity>1</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Manipulation</capacity>
+                        <postFactor>1.1</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>fist</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>16</power>
+                        <cooldownTime>1.75</cooldownTime>
+                        <soundMeleeHit>MeleeHit_BionicPunch</soundMeleeHit>
+                        <soundMeleeMiss>MeleeMiss_BionicPunch</soundMeleeMiss>
+                    </li>
+                </tools>
+            </li>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>2</powerUsage>
+                <disablesAttack>false</disablesAttack>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

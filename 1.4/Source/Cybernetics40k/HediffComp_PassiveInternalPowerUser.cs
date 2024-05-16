@@ -10,11 +10,11 @@ namespace Cybernetics40k
         {
             get
             {
-                return parent.pawn.health.hediffSet.hediffs.Find(x => x.TryGetComp<HediffComp_ImplantPower>() is HediffComp_ImplantPower h).TryGetComp<HediffComp_ImplantPower>();
+                return parent?.pawn?.health?.hediffSet?.hediffs.Find(x => x.TryGetComp<HediffComp_ImplantPower>() is HediffComp_ImplantPower h).TryGetComp<HediffComp_ImplantPower>();
             }
         }
 
-        public new HediffCompProperties_PassiveInternalPowerUser Props => (HediffCompProperties_PassiveInternalPowerUser)props;
+        public HediffCompProperties_PassiveInternalPowerUser Props => (HediffCompProperties_PassiveInternalPowerUser)props;
 
         public override void CompPostTick(ref float severityAdjustment)
         {

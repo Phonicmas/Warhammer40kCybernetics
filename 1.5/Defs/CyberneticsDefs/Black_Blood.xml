@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Black Blood ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_BlackBlood</defName>
+        <label>black blood</label>
+        <description>A combinaion of microtech from the Dark Ages and obscene xenos biotech flows though veins now forever tainted.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_BlackBlood</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>3000</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_BlackBlood</defName>
+        <label>install black blood</label>
+        <description>Install black blood.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_BlackBlood</ThingDef>
+            <HediffDef>BEWH_BlackBlood</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing black blood.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_BlackBlood</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_BlackBlood</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_BlackBlood</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_BlackBlood</defName>
+        <label>black blood</label>
+        <labelNoun>black blood</labelNoun>
+        <description>Installed black blood.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <statFactors>
+                    <InjuryHealingFactor>2</InjuryHealingFactor>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>BEWH_BlackBlood</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+    <!-- AbilityDef -->
+    <AbilityDef>
+        <defName>BEWH_BlackBlood</defName>
+        <label>black blood boost</label>
+        <description>Massively boost productivity of black blood, however this weakens it for some time afterwardss</description>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <iconPath>UI/Abilities/BlackBlood</iconPath>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <category>BEWH_Cybernetics</category>
+        <cooldownTicksRange>180000</cooldownTicksRange>
+        <uiOrder>2</uiOrder>
+        <warmupStartSound>BEWH_NoSound</warmupStartSound>
+        <statBases>
+            <Ability_Duration>15000</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>0</range>
+            <warmupTime>2</warmupTime>
+            <drawAimPie>False</drawAimPie>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>BEWH_BlackBloodBoost</hediffDef>
+                <onlyApplyToSelf>True</onlyApplyToSelf>
+                <replaceExisting>true</replaceExisting>
+            </li>
+        </comps>
+    </AbilityDef>
+    <!-- HediffDef -->
+    <HediffDef>
+        <defName>BEWH_BlackBloodBoost</defName>
+        <label>black blood boost</label>
+        <labelNoun>black blood boost</labelNoun>
+        <description>black blood is working overtime.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <statFactors>
+                    <InjuryHealingFactor>4</InjuryHealingFactor>
+                </statFactors>
+                <totalBleedFactor>0.5</totalBleedFactor>
+            </li>
+        </stages>
+        <comps>
+            <li Class="Cybernetics40k.HediffCompProperties_DisappearThenGiveHediff">
+                <disappearsAfterTicks>15000</disappearsAfterTicks>
+                <showRemainingTime>True</showRemainingTime>
+                <hediffDef>BEWH_BlackBloodDebuff</hediffDef>
+                <skipIfAlreadyExists>True</skipIfAlreadyExists>
+            </li>
+            <li Class="HediffCompProperties_HealPermanentWounds"/>
+        </comps>
+    </HediffDef>
+    <!-- HediffDef -->
+    <HediffDef>
+        <defName>BEWH_BlackBloodDebuff</defName>
+        <label>black blood resting</label>
+        <labelNoun>black blood resting</labelNoun>
+        <description>black blood is currently resting.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <statFactors>
+                    <InjuryHealingFactor>0.5</InjuryHealingFactor>
+                </statFactors>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <disappearsAfterTicks>165000</disappearsAfterTicks>
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

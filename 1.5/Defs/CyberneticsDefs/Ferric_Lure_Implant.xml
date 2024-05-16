@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Ferric Lure Implant ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_FerricLureImplant</defName>
+        <label>ferric lure implant</label>
+        <description>Powerful electromagnets that allows the pawn to cast forth a net of invisible energy to grab an unattended object.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_FerricLureImplant</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>1500</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_FerricLureImplant</defName>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <label>install ferric lure implant</label>
+        <description>Install an ferric lure implant.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_FerricLureImplant</ThingDef>
+            <HediffDef>BEWH_FerricLureImplant</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing ferric lure implant.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_FerricLureImplant</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_FerricLureImplant</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_FerricLureImplant</addsHediff>
+        <modExtensions>
+            <li Class="Core40k.DefModExtension_RequiresHediff">
+                <hediffDef>BEWH_InternalResevoir</hediffDef>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_FerricLureImplant</defName>
+        <label>ferric lure implant</label>
+        <labelNoun>an ferric lure implant</labelNoun>
+        <description>An installed ferric lure implant.</description>
+        <comps>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>BEWH_FerricLureImplant</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+    <!-- AbilityDef -->
+    <AbilityDef>
+        <defName>BEWH_FerricLureImplant</defName>
+        <label>ferric lure</label>
+        <description>Grab unattended object.</description>
+        <iconPath>UI/Abilities/FerricLure</iconPath>
+        <cooldownTicksRange>0</cooldownTicksRange>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+        <hostile>false</hostile>
+        <category>BEWH_Cybernetics</category>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.5</warmupTime>
+            <requireLineOfSight>true</requireLineOfSight>
+            <drawAimPie>true</drawAimPie>
+            <range>19.9</range>
+            <targetParams>
+                <mapObjectTargetsMustBeAutoAttackable>false</mapObjectTargetsMustBeAutoAttackable>
+                <canTargetPawns>false</canTargetPawns>
+                <canTargetBuildings>false</canTargetBuildings>
+                <canTargetItems>true</canTargetItems>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="Cybernetics40k.CompProperties_AbilityFerricLure"/>
+            <li Class="Cybernetics40k.CompProperties_AbilityActiveInternalPowerUser">
+                <powerUsage>50</powerUsage>
+            </li>
+        </comps>
+    </AbilityDef>
+
+</Defs>

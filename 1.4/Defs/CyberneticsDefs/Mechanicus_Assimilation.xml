@@ -5,7 +5,7 @@
     <!-- ThingDef -->
     <ThingDef ParentName="BodyPartCyberneticBase">
         <defName>BEWH_MechanicusAssimilation</defName>
-        <label>mechanicus assimilation</label>
+        <label>cyber mantle</label>
         <description>Used to rebuild the users body with interlaced bionic replacements, augmenting and suporting the biological system.</description>
         <descriptionHyperlinks>
             <RecipeDef>BEWH_MechanicusAssimilation</RecipeDef>
@@ -17,13 +17,13 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_MechanicusAssimilation</defName>
-        <label>install mechanicus assimilation</label>
-        <description>Install machanicus assimilation.</description>
+        <label>install cyber mantle</label>
+        <description>Install cyber mantle.</description>
         <descriptionHyperlinks>
             <ThingDef>BEWH_MechanicusAssimilation</ThingDef>
             <HediffDef>BEWH_MechanicusAssimilation</HediffDef>
         </descriptionHyperlinks>
-        <jobString>Installing mechanicus assimilation.</jobString>
+        <jobString>Installing cyber mantle.</jobString>
         <ingredients>
             <li>
                 <filter>
@@ -47,9 +47,9 @@
     <!-- HediffDef -->
     <HediffDef ParentName="ImplantHediffBase">
         <defName>BEWH_MechanicusAssimilation</defName>
-        <label>mechanicus assimilation</label>
-        <labelNoun>mechanicus assimilation</labelNoun>
-        <description>Installed mechanicus assimilation.</description>
+        <label>cyber mantle</label>
+        <labelNoun>cyber mantle</labelNoun>
+        <description>Installed cyber mantle.</description>
         <initialSeverity>0</initialSeverity>
         <minSeverity>0</minSeverity>
         <maxSeverity>1</maxSeverity>

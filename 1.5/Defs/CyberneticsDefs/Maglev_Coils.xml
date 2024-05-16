@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Maglev Coils ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_MaglevCoils</defName>
+        <label>maglev coils</label>
+        <description>Systems of powerful gravimetric coils are implanted in the body, allowing the pawn to become unshackled from the gravity's grasp for short periods.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_MaglevCoils</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>1500</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_MaglevCoils</defName>
+        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <label>install maglev coils</label>
+        <description>Install an maglev coils.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_MaglevCoils</ThingDef>
+            <HediffDef>BEWH_MaglevCoils</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing maglev coils.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_MaglevCoils</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_MaglevCoils</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_MaglevCoils</addsHediff>
+        <modExtensions>
+            <li Class="Core40k.DefModExtension_RequiresHediff">
+                <hediffDef>BEWH_InternalResevoir</hediffDef>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_MaglevCoils</defName>
+        <label>maglev coils</label>
+        <labelNoun>an maglev coils</labelNoun>
+        <description>An installed maglev coils.</description>
+        <comps>
+            <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>BEWH_MaglevCoils</li>
+                </abilityDefs>
+            </li>
+        </comps>
+    </HediffDef>
+    <!-- AbilityDef -->
+    <AbilityDef>
+        <defName>BEWH_MaglevCoils</defName>
+        <label>maglev coil levitation</label>
+        <description>Levitate for some time, ignoring terrain slowdown.</description>
+        <iconPath>UI/Abilities/MaglevCoils</iconPath>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>true</disableGizmoWhileUndrafted>
+        <hostile>false</hostile>
+        <category>BEWH_Cybernetics</category>
+        <jobDef>CastAbilityOnThing</jobDef>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>15000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.5</warmupTime>
+            <requireLineOfSight>false</requireLineOfSight>
+            <drawAimPie>false</drawAimPie>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <statBases>
+            <Ability_Duration>15000</Ability_Duration>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>BEWH_MaglevCoilsLevitate</hediffDef>
+                <onlyApplyToSelf>True</onlyApplyToSelf>
+                <replaceExisting>true</replaceExisting>
+            </li>
+            <li Class="Cybernetics40k.CompProperties_AbilityActiveInternalPowerUser">
+                <powerUsage>75</powerUsage>
+            </li>
+        </comps>
+    </AbilityDef>
+    <!-- HediffDef -->
+    <HediffDef>
+        <defName>BEWH_MaglevCoilsLevitate</defName>
+        <label>levitation</label>
+        <labelNoun>levitation</labelNoun>
+        <description>currently levitating, ignoring terrain slowdowns.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <scenarioCanAdd>false</scenarioCanAdd>
+        <maxSeverity>1.0</maxSeverity>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="AnimalBehaviours.HediffCompProperties_Floating"/>
+            <li Class="Cybernetics40k.HediffCompProperties_DisappearThenGiveHediff">
+                <disappearsAfterTicks>15000</disappearsAfterTicks>
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

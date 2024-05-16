@@ -17,7 +17,7 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_OpticalMechadendrite</defName>
-        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <workerClass>Cybernetics40k.Recipe_InstallImplant_CH</workerClass>
         <label>install optical mechadendrite</label>
         <description>Install optical mechadendrite.</description>
         <descriptionHyperlinks>

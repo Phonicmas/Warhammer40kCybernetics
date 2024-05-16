@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Mechanicus Assimilation ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_MechanicusAssimilation</defName>
+        <label>cyber mantle</label>
+        <description>Used to rebuild the users body with interlaced bionic replacements, augmenting and suporting the biological system.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_MechanicusAssimilation</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>5000</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_MechanicusAssimilation</defName>
+        <label>install cyber mantle</label>
+        <description>Install cyber mantle.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_MechanicusAssimilation</ThingDef>
+            <HediffDef>BEWH_MechanicusAssimilation</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing cyber mantle.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_MechanicusAssimilation</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_MechanicusAssimilation</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_MechanicusAssimilation</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_MechanicusAssimilation</defName>
+        <label>cyber mantle</label>
+        <labelNoun>cyber mantle</labelNoun>
+        <description>Installed cyber mantle.</description>
+        <initialSeverity>0.01</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <stages>
+            <li>
+                <label>Inactive</label>
+                <minSeverity>0</minSeverity>
+                <statOffsets>
+                    <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+                    <ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+                    <ArmorRating_Heat>0.45</ArmorRating_Heat>
+                </statOffsets>
+                <statFactors>
+                    <IncomingDamageFactor>0.8</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.75</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>Active</label>
+                <minSeverity>1</minSeverity>
+                <hungerRateFactor>0.45</hungerRateFactor>
+                <foodPoisoningChanceFactor>0</foodPoisoningChanceFactor>
+                <statOffsets>
+                    <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+                    <ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+                    <ArmorRating_Heat>0.45</ArmorRating_Heat>
+                </statOffsets>
+                <statFactors>
+                    <RestFallRateFactor>0.75</RestFallRateFactor>
+                    <IncomingDamageFactor>0.8</IncomingDamageFactor>
+                </statFactors>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <postFactor>1.2</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_ReactOnDamage">
+                <damageDefIncoming>EMP</damageDefIncoming>
+                <createHediff>BrainShock</createHediff>
+            </li>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>10</powerUsage>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

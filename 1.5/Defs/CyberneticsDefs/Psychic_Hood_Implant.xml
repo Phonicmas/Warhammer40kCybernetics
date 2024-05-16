@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Psychic Hood ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_PsychicHoodImplant</defName>
+        <label>psychic hood</label>
+        <description>The Psychic Hood is an arcane device utilised often by Space Marine Librarians and other psykers to amplify the wearer's psychic powers.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_PsychicHoodImplant</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>1800</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_PsychicHoodImplant</defName>
+        <label>install psychic hood</label>
+        <description>Install an psychic hood.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_PsychicHoodImplant</ThingDef>
+            <HediffDef>BEWH_PsychicHoodImplant</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing psychic hood.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_PsychicHoodImplant</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_PsychicHoodImplant</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Brain</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_PsychicHoodImplant</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_PsychicHoodImplant</defName>
+        <label>psychic hood</label>
+        <labelNoun>an psychic hood</labelNoun>
+        <description>An installed psychic hood.</description>
+        <stages>
+            <li>
+                <statOffsets>
+                    <PsychicSensitivity>0.8</PsychicSensitivity>
+                    <PsychicEntropyRecoveryRate>0.5</PsychicEntropyRecoveryRate>
+                </statOffsets>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

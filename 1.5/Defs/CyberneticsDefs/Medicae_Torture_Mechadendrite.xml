@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Medicae/Torture Mechadendrite ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_MedicaeTortureMechadendrite</defName>
+        <label>medicae/torture mechadendrite</label>
+        <description>Made of thin, dextrous tubes tipped with a variety of fascinating needles and blades, this mechadendrite can either heal or harm depending on intent. \n\nRequires the pawn to have an installed Mechadendrite Neural System to be able to install this.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_MedicaeTortureMechadendrite</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>2500</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_MedicaeTortureMechadendrite</defName>
+        <workerClass>Cybernetics40k.Recipe_InstallImplant_CH</workerClass>
+        <label>install medicae/torture mechadendrite</label>
+        <description>Install medicae/torture mechadendrite.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_MedicaeTortureMechadendrite</ThingDef>
+            <HediffDef>BEWH_MedicaeTortureMechadendrite</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing medicae/torture mechadendrite.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_MedicaeTortureMechadendrite</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_MedicaeTortureMechadendrite</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Shoulder</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_MedicaeTortureMechadendrite</addsHediff>
+        <modExtensions>
+            <li Class="Core40k.DefModExtension_RequiresHediff">
+                <hediffDef>BEWH_MechadendriteNeuralSystem</hediffDef>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_MedicaeTortureMechadendrite</defName>
+        <label>medicae/torture mechadendrite</label>
+        <labelNoun>medicae/torture mechadendrite</labelNoun>
+        <description>Installed medicae/torture mechadendrite.</description>
+        <initialSeverity>0.01</initialSeverity>
+        <minSeverity>0</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <stages>
+            <li>
+                <label>Inactive</label>
+                <minSeverity>0</minSeverity>
+                <statOffsets>
+                    <MedicalTendSpeed>0.15</MedicalTendSpeed>
+                    <MedicalTendQuality>0.15</MedicalTendQuality>
+                    <MedicalOperationSpeed>0.15</MedicalOperationSpeed>
+                    <MedicalSurgerySuccessChance>0.15</MedicalSurgerySuccessChance>
+                    <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.15</ConversionPower>
+                    <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.15</SuppressionPower>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.95</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>Active</label>
+                <minSeverity>1</minSeverity>
+                <statOffsets>
+                    <MedicalTendSpeed>0.6</MedicalTendSpeed>
+                    <MedicalTendQuality>0.6</MedicalTendQuality>
+                    <MedicalOperationSpeed>0.6</MedicalOperationSpeed>
+                    <MedicalSurgerySuccessChance>0.6</MedicalSurgerySuccessChance>
+                    <ConversionPower MayRequire="Ludeon.RimWorld.Ideology">0.6</ConversionPower>
+                    <SuppressionPower MayRequire="Ludeon.RimWorld.Ideology">0.6</SuppressionPower>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_VerbGiver">
+                <tools>
+                    <li>
+                        <label>medicae/torture mechadendrite</label>
+                        <capacities>
+                            <li>Stab</li>
+                        </capacities>
+                        <power>7</power>
+                        <cooldownTime>1.5</cooldownTime>
+                    </li>
+                    <li>
+                        <label>medicae/torture mechadendrite</label>
+                        <capacities>
+                            <li>Stab</li>
+                        </capacities>
+                        <power>7</power>
+                        <cooldownTime>1.5</cooldownTime>
+                    </li>
+                </tools>
+            </li>
+            <li Class="Cybernetics40k.HediffCompProperties_PassiveInternalPowerUser">
+                <powerUsage>2</powerUsage>
+            </li>
+        </comps>
+    </HediffDef>
+
+</Defs>

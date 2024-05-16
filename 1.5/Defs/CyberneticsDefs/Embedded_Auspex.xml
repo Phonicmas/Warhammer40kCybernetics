@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--=== Embedded Auspex ===-->
+    <!-- ThingDef -->
+    <ThingDef ParentName="BodyPartCyberneticBase">
+        <defName>BEWH_EmbeddedAuspex</defName>
+        <label>embedded auspex</label>
+        <description>Expands the senses of the implantee.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>BEWH_EmbeddedAuspex</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <MarketValue>2000</MarketValue>
+        </statBases>
+    </ThingDef>
+    <!-- RecipeDef -->
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>BEWH_EmbeddedAuspex</defName>
+        <label>install embedded auspex</label>
+        <description>Install an embedded auspex.</description>
+        <descriptionHyperlinks>
+            <ThingDef>BEWH_EmbeddedAuspex</ThingDef>
+            <HediffDef>BEWH_EmbeddedAuspex</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing embedded auspex.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BEWH_EmbeddedAuspex</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BEWH_EmbeddedAuspex</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Head</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>BEWH_EmbeddedAuspex</addsHediff>
+    </RecipeDef>
+    <!-- HediffDef -->
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>BEWH_EmbeddedAuspex</defName>
+        <label>embedded auspex</label>
+        <labelNoun>an embedded auspex</labelNoun>
+        <description>An installed embedded auspex.</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Hearing</capacity>
+                        <postFactor>1.3</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <postFactor>1.3</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+</Defs>

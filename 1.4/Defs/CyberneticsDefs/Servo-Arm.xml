@@ -17,7 +17,7 @@
     <!-- RecipeDef -->
     <RecipeDef ParentName="SurgeryInstallImplantBase">
         <defName>BEWH_ServoArm</defName>
-        <workerClass>Core40k.Recipe_InstallImplantRequiringHediff</workerClass>
+        <workerClass>Cybernetics40k.Recipe_InstallImplant_CH</workerClass>
         <label>install servo-arm</label>
         <description>Install servo-arm.</description>
         <descriptionHyperlinks>
