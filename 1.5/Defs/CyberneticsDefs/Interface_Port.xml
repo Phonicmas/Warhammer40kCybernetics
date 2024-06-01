@@ -6,7 +6,7 @@
     <ThingDef ParentName="BodyPartCyberneticBase">
         <defName>BEWH_InterfacePort</defName>
         <label>interface port</label>
-        <description>Powerful electromagnets that allows the pawn to cast forth a net of invisible energy to grab an unattended object.</description>
+        <description>A mechanical port that can be connected to machines via data ports, allowing faster and smoother access to information within.</description>
         <descriptionHyperlinks>
             <RecipeDef>BEWH_InterfacePort</RecipeDef>
         </descriptionHyperlinks>
